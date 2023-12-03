@@ -8,7 +8,7 @@ import {
 import { Server, Socket } from 'socket.io';
 import { MapService } from './map.service';
 
-@WebSocketGateway({ cors: '*' })
+@WebSocketGateway({ perMessageDeflate: 10, cors: '*' })
 export class MyGateway implements OnModuleInit {
   constructor(private mapService: MapService) {}
   private onlineUsers = new Map();
